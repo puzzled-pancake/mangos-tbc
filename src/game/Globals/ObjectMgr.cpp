@@ -3630,7 +3630,7 @@ void ObjectMgr::LoadPetLevelInfo()
         {
             sLog.outErrorDb("Creature %u does not have pet stats data for Level 1!", itr.first);
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("creature pet stats data missing for Level 1");
         }
 
         // fill level gaps
@@ -3677,7 +3677,7 @@ void ObjectMgr::LoadPlayerInfo()
             sLog.outString(">> Loaded %u player create definitions", count);
             sLog.outErrorDb("Error loading `playercreateinfo` table or empty table.");
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("playercreateinfo table missing or empty");
         }
 
         BarGoLink bar(queryResult->GetRowCount());
@@ -4057,7 +4057,7 @@ void ObjectMgr::LoadPlayerInfo()
             sLog.outString(">> Loaded %u level health/mana definitions", count);
             sLog.outErrorDb("Error loading `player_classlevelstats` table or empty table.");
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("player_classlevelstats table missing or empty");
         }
 
         BarGoLink bar(queryResult->GetRowCount());
@@ -4124,7 +4124,7 @@ void ObjectMgr::LoadPlayerInfo()
         {
             sLog.outErrorDb("Class %i Level 1 does not have health/mana data!", class_);
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("player class Level 1 health/mana data missing");
         }
 
         // fill level gaps
@@ -4153,7 +4153,7 @@ void ObjectMgr::LoadPlayerInfo()
             sLog.outString(">> Loaded %u level stats definitions", count);
             sLog.outErrorDb("Error loading `player_levelstats` table or empty table.");
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("player_levelstats table missing or empty");
         }
 
         BarGoLink bar(queryResult->GetRowCount());
@@ -4239,7 +4239,7 @@ void ObjectMgr::LoadPlayerInfo()
             {
                 sLog.outErrorDb("Race %i Class %i Level 1 does not have stats data!", race, class_);
                 Log::WaitBeforeContinueIfNeed();
-                exit(1);
+                POCKET_FATAL("race/class Level 1 stats data missing");
             }
 
             // fill level gaps
@@ -4273,7 +4273,7 @@ void ObjectMgr::LoadPlayerInfo()
             sLog.outString(">> Loaded %u xp for level definitions", count);
             sLog.outErrorDb("Error loading `player_xp_for_level` table or empty table.");
             Log::WaitBeforeContinueIfNeed();
-            exit(1);
+            POCKET_FATAL("player_xp_for_level table missing or empty");
         }
 
         BarGoLink bar(queryResult->GetRowCount());
